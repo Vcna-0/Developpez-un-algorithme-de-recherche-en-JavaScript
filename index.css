@@ -1,0 +1,67 @@
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;}
+
+body {
+  
+}
+
+.hero-section {
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   gap: 168px;
+   padding: 50px 60px;
+   min-height: 665px;
+   color: white;
+   background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/assets/hero-img.jpg');
+   background-size: cover;
+   background-position: center;
+}
+
+.logo {
+   display: block;
+   font-size: 2.5rem;
+   font-weight: bold;
+   color: #FFD15B;
+   margin: 10px 0 2rem 10px;
+}
+
+.hero-title {
+   margin-bottom: 2rem;
+   text-align: center;
+   font-family: "Anton", sans-serif;
+   font-style: regular;
+   font-size: 2.8rem;
+   font-weight: 400;
+   color: #FFD15B;
+}
+
+.search-container {
+   position: relative;
+   max-width: 600px;
+   margin: 0 auto;
+}
+
+.search-input {
+   border-radius: 10px;
+   padding: 15px 60px 15px 20px;
+   border: none;
+   font-size: 1.1rem;
+}
+
+.search-btn {
+   position: absolute;
+   right: 5px;
+   top: 50%;
+   transform: translateY(-50%);
+   background: #1B1B1B;
+   border: none;
+   border-radius: 8px;
+   padding: 10px 15px;
+   color: white;
+}
