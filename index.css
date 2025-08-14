@@ -5,10 +5,6 @@
   padding: 0;
   box-sizing: border-box;}
 
-body {
-  
-}
-
 .hero-section {
    position: relative;
    display: flex;
@@ -56,12 +52,13 @@ body {
 
 .search-btn {
    position: absolute;
+   display: flex;
    right: 5px;
    top: 50%;
    transform: translateY(-50%);
    background: #1B1B1B;
    border: none;
    border-radius: 8px;
-   padding: 10px 15px;
+   padding: 12px;
    color: white;
 }
