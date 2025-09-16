@@ -1,9 +1,16 @@
 *,
 ::after,
 ::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;}
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+/*  HERO  */
+
+body {
+   font-family: 'Manrope', sans-serif;
+}
 
 .hero-section {
    position: relative;
@@ -14,7 +21,7 @@
    padding: 50px 60px;
    min-height: 665px;
    color: white;
-   background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/assets/hero-img.jpg');
+   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/assets/hero-img.jpg');
    background-size: cover;
    background-position: center;
 }
@@ -23,19 +30,21 @@
    display: block;
    font-size: 2.5rem;
    font-weight: bold;
-   color: #FFD15B;
+   color: #ffd15b;
    margin: 10px 0 2rem 10px;
 }
 
 .hero-title {
    margin-bottom: 2rem;
    text-align: center;
-   font-family: "Anton", sans-serif;
+   font-family: 'Anton', sans-serif;
    font-style: regular;
    font-size: 2.8rem;
    font-weight: 400;
-   color: #FFD15B;
+   color: #ffd15b;
 }
+
+/* SEARCHBAR */
 
 .search-container {
    position: relative;
@@ -56,9 +65,137 @@
    right: 5px;
    top: 50%;
    transform: translateY(-50%);
-   background: #1B1B1B;
+   background: #1b1b1b;
    border: none;
    border-radius: 8px;
    padding: 12px;
    color: white;
+}
+
+.search-btn:hover {
+   background: #ffd15b;
+   color: #000;
+   cursor: pointer;
+}
+
+.clear-btn {
+   position: absolute;
+   right: 60px;
+   top: 50%;
+   transform: translateY(-50%);
+   border: none;
+   background: none;
+   font-size: 32px;
+   color: #6c757d;
+   display: none;
+}
+
+.clear-btn:hover {
+   color: #dc3545;
+}
+
+/* CARD */
+
+.card-title {
+   font-family: 'Anton', sans-serif;
+   font-size: 18px;
+   font-weight: 400;
+}
+
+.recipe-image {
+   width: 100%;
+   height: 200px;
+   background: #f8f9fa;
+   border-radius: 15px 15px 0 0;
+   object-fit: cover;
+}
+
+.time-badge {
+   position: absolute;
+   top: 15px;
+   right: 15px;
+   background: #ffc107;
+   color: #000;
+   padding: 5px 12px;
+   border-radius: 15px;
+   font-size: 0.9rem;
+   font-weight: 500;
+}
+
+.recipe-card {
+   max-width: 400px;
+   border-radius: 20px;
+   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+   overflow: hidden;
+}
+
+.card-header-custom {
+   position: relative;
+   padding: 0;
+}
+
+.ingredient-row {
+   border-bottom: 1px solid #f0f0f0;
+   padding: 8px 0;
+}
+
+.ingredient-row:last-child {
+   border-bottom: none;
+}
+
+/*  DROPDOWN  */
+
+.dropdown-container {
+   width: 285px;
+}
+
+.dropdown-item {
+   padding: 9px;
+}
+.dropdown-item:hover {
+   background-color: #ffd15b;
+}
+
+/*  FILTER TAGS  */
+
+.filter-tag {
+   background-color: #ffd15b;
+   color: #1b1b1b;
+   border: none;
+   border-radius: 10px;
+   padding: 8px 12px;
+   font-size: 14px;
+   font-weight: 500;
+   margin-right: 8px;
+   margin-bottom: 8px;
+   display: inline-flex;
+   align-items: center;
+   gap: 8px;
+   position: relative;
+}
+
+.filter-tag .close-btn {
+   background: none;
+   border: none;
+   color: #1b1b1b;
+   font-size: 16px;
+   font-weight: bold;
+   cursor: pointer;
+   padding: 0;
+   margin: 0;
+   line-height: 1;
+   width: 16px;
+   height: 16px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.filter-tag .close-btn:hover {
+   color: #000;
+   transform: scale(1.1);
+}
+
+.filter-tag:hover {
+   background-color: #ffca28;
 }
