@@ -33,19 +33,53 @@ function filterRecipes() {
    showFilterTags();
 }
 
-// Solution avec le mot clé "coco" mais trouve aussi "cocotte" dans la description
-function searchRecipesMultipleKeywords(query) {
-   const keywords = query.toLowerCase().trim().split(/\s+/);
+function searchRecipesMultipleKeywords(query, recipesToSearch = recipes) {
+   const raw = String(query).toLowerCase().trim();
+   if (raw.length === 0) return recipesToSearch.slice();
 
-   return recipes.filter((recipe) => {
-      const searchableText = [
-         recipe.name.toLowerCase(),
-         recipe.description.toLowerCase(),
-         ...recipe.ingredients.map((ing) => ing.ingredient.toLowerCase()),
-      ].join(' ');
+   const keywords = raw.split(/\s+/);
+   const results = [];
 
-      return keywords.every((keyword) => searchableText.includes(keyword));
-   });
+   for (let i = 0; i < recipesToSearch.length; i++) {
+      const recipe = recipesToSearch[i];
+
+      const nameLower = (recipe.name || '').toLowerCase();
+      const descLower = (recipe.description || '').toLowerCase();
+
+      // pré-calculer les ingrédients en minuscules
+      const ingCount = recipe.ingredients ? recipe.ingredients.length : 0;
+      const ingLower = [];
+      for (let p = 0; p < ingCount; p++) {
+         ingLower.push((recipe.ingredients[p].ingredient || '').toLowerCase());
+      }
+
+      let allKeywordsFound = true;
+
+      for (let k = 0; k < keywords.length; k++) {
+         const kw = keywords[k];
+         if (kw === '') continue;
+
+         let found = false;
+         if (nameLower.indexOf(kw) !== -1 || descLower.indexOf(kw) !== -1) {
+            found = true;
+         } else {
+            for (let m = 0; m < ingLower.length; m++) {
+               if (ingLower[m].indexOf(kw) !== -1) {
+                  found = true;
+                  break;
+               }
+            }
+         }
+         if (!found) {
+            allKeywordsFound = false;
+            break;
+         }
+      }
+      if (allKeywordsFound) {
+         results.push(recipe);
+      }
+   }
+   return results;
 }
 
 mainSearchInput.addEventListener('input', function () {
